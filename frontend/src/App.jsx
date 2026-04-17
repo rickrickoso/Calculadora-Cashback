@@ -52,6 +52,12 @@ export default function CalculadoraCashback(){
         },
         body: JSON.stringify(payload)
       })
+      
+      if (!response.ok){
+        alert("Por favor, insira apenas valores válidos e maiores que zero.")
+        return
+      }
+
       // pega a data da consulta
       const data = await response.json()
       setResultado(data)
@@ -61,7 +67,8 @@ export default function CalculadoraCashback(){
       }
 
     } catch (error) {
-      console.error("Erro ao enviar cálculo:", error)
+      console.error("Erro na requisicao:", error)
+      alert("Ocorreu um erro ao conectar com o servidor.")
     }
   }
     // Interface
