@@ -20,7 +20,7 @@ export default function CalculadoraCashback(){
   const carregarHistorico = async () => {
     try {
       // faz um GET pro historico
-      const response = await fetch('http://127.0.0.1:8000/consulta/historico')
+      const response = await fetch('https://calculadora-cashback-lpng.onrender.com/consulta/historico')
       const data = await response.json() // converte pra json
       setHistoricoIP(data.dados) // salva os dados
     } catch(error) {
@@ -46,7 +46,7 @@ export default function CalculadoraCashback(){
     }
 
     try {
-      const response = await fetch('http://127.0.0.1:8000/consulta/cashback', {
+      const response = await fetch('https://calculadora-cashback-lpng.onrender.com/consulta/cashback', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json' // comunica envio json
