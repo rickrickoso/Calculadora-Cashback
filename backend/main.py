@@ -1,5 +1,5 @@
 from fastapi import FastAPI, Request
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 import database
 from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
@@ -36,8 +36,8 @@ def inicia_banco():
         conexao.close()
 
 class RequisicaoCashback(BaseModel): #Classe na requisição para não ser alterado
-    valor_subtotal:float
-    percentual_cupom:float
+    valor_subtotal:float = Field(gt=0)
+    percentual_cupom:float = Field(ge=0, le=100)
     is_vip: bool
 
 

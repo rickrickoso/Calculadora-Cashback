@@ -72,8 +72,17 @@ def consulta_tabela_ip(conexao, ip):
     try:
         with conexao.cursor(cursor_factory=RealDictCursor) as cursor:
             comando_sql_consulta = """ 
-                SELECT * FROM Consultas WHERE ip = %(meu_ip)s;
-                                    """
+                SELECT
+                    id,
+                    valor_total,
+                    cupom,
+                    cashback,
+                    vip,
+                    TO_CHAR(data_consulta, 'DD/MM/YYYY às HH24:MI') as data_formatada
+                FROM Consultas
+                WHERE ip = %(meu_ip)s
+                ORDER BY id DESC;
+            """
             cursor.execute(comando_sql_consulta,{"meu_ip": ip})
             return cursor.fetchall()
         

@@ -123,6 +123,7 @@ export default function CalculadoraCashback(){
             <h3>Resultado:</h3>
             <p>Valor Final: R$ {resultado.Valor_Total.toFixed(2)}</p>
             <p>Seu Cashback: R$ {resultado.Cashback.toFixed(2)}</p>
+            <p>Data: {item.data_formatada}</p>
           </div>
         )}
       </main>
