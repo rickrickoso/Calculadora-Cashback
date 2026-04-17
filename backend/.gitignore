@@ -1,0 +1,13 @@
+#Variaveis de Ambiente
+.env
+
+#Ambientes Virtuais
+venv/
+env/
+
+#Arquivos Temporarios
+__pycache__
+*.pycc
+
+#Configuracoes Locais
+.vscode

@@ -1,0 +1,143 @@
+/* Parte Superior*/
+.container-principal {
+  position: relative; /*Define bloco pai*/
+  min-height: 100vh;
+  overflow-x: hidden; /*Evita vazamentos*/
+}
+.logo-container{
+  display: flex;
+}
+.logo-container h2{
+  padding: 5px;
+}
+.logo-img{
+  height: 40px;
+  width: auto;
+  display: block;
+}
+.barra-superior{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 32px;
+  border-bottom: 1px solid var(--border);
+}
+
+.botao-historico{
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--accent);
+}
+
+/*Formulario*/
+
+.conteudo_calculadora{
+  max-width: 500px;
+  margin: 40px auto;
+  text-align: left;
+  padding: 0 20px;
+}
+
+.titulo {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.campo-form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.campo-form input,
+.campo-form select {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 16px;
+  margin-top: 5px;
+}
+.fecha-aba{
+  width: 25%;
+  padding: 12px;
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: opacity 0.2s /*faz uma transicao visual no botao pro hover*/
+}
+.fecha-aba:hover{
+  opacity: 0.8;
+}
+
+.botao-calcular {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: opacity 0.2s /*faz uma transicao visual no botao pro hover*/
+}
+
+.botao-calcular:hover{
+  opacity: 0.8;
+}
+
+/*Aba lateral e Resultado*/
+
+.resultado-box{
+  margin-top: 30px;
+  background: var(--accent-bg);
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.resultado-box h3{
+  margin-top: 0;
+  color: var(--accent);
+}
+
+.aba-lateral{
+  position: fixed;
+  /*cola no canto superior direito*/
+  top: 0;
+  right: 0;
+  width: 350px;
+  height: 100vh;
+  background: var(--bg);
+  box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+  padding: 20px;
+  overflow-y: auto; /*cria uma barra de rolagem pro historico se necessario*/
+
+}
+
+.cabecalho-aba{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+}
+
+.lista-historico{
+  list-style: none;
+  padding: 0;
+}
+
+.lista-historico li{
+  border-bottom: 1px solid var(--border);
+  padding: 10px 0;
+  font-size:14px;
+}
