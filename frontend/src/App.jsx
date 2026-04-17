@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { History } from 'lucide-react'
 import './App.css'
-import logoNology from './assets/nology_br_logo.jpg'
 
 export default function CalculadoraCashback(){
   
@@ -72,7 +71,7 @@ export default function CalculadoraCashback(){
       {/*Cabecalho*/}
       <header className="barra-superior">
         <div className="logo-container">
-          <img src={logoNology} alt="Logo Nology" className='logo-img'/>
+          <img src="/nology_br_logo.jpg" alt="Logo Nology" className='logo-img'/>
           <h2>Nology</h2>
         </div>
         <button onClick={alternarAba} className="botao-historico" title="Histórico">
