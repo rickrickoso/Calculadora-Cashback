@@ -145,7 +145,7 @@ export default function CalculadoraCashback(){
             {historicoIP.length > 0 ? (
               historicoIP.map((item) => (
                 <li key={item.id}>
-                  <p>Data: {item.data_formatada}</p><br/>
+                  <strong>[{item.data_formatada}]</strong> <br/>
                   R$ {item.valor_total} {'->'} Cashback: R$ {item.cashback}
                   { item.vip ? ' (VIP)' : ' (Normal)'}
                 </li>
