@@ -2,8 +2,18 @@ from fastapi import FastAPI, Request
 from pydantic import BaseModel
 import database
 from fastapi.middleware.cors import CORSMiddleware
+from contextlib import asynccontextmanager
 
-app = FastAPI()
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    print("Iniciando servidor e conectando bd...")
+    inicia_banco()
+
+    yield
+
+    print("Desligando servidor...")
+
+app = FastAPI(lifespan=lifespan)
 
 origins = [
     "http://localhost:5173",
@@ -18,13 +28,6 @@ app.add_middleware(
     allow_methods=["GET", "POST"],
     allow_headers=["*"],
 )
-
-@app.on_event("startup")
-def inicia_banco():
-    conexao = database.get_conexao()
-    database.cria_tabela(conexao)
-    if conexao is not None:
-        conexao.close()
 
 class RequisicaoCashback(BaseModel): #Classe na requisição para não ser alterado
     valor_subtotal:float
