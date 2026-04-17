@@ -29,6 +29,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+def inicia_banco():
+    conexao = database.get_conexao()
+    database.cria_tabela(conexao)
+    if conexao is not None:
+        conexao.close()
+
 class RequisicaoCashback(BaseModel): #Classe na requisição para não ser alterado
     valor_subtotal:float
     percentual_cupom:float
